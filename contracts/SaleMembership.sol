@@ -43,9 +43,9 @@ contract SaleMembership {
         require(membershipOwner != msg.sender, "Caller is Membership owner.");
         require(!isBid[_membershipId], "Membership is already Bided.");
 
+        // payable(address(this)).transfer(msg.value);
         isBid[_membershipId] = true;
         bidAddress[_membershipId] = msg.sender;
-        payable(address(this)).transfer(msg.value);
     }
 
     function approveTrade(uint256 _membershipId) public payable {
@@ -63,12 +63,21 @@ contract SaleMembership {
         }
     }
     
-    function getOnSaleArray() view public returns (uint256 [] memory){
-        return onSaleMembershipArray;
+    function denyTrade(uint256 _membershipId) public payable {
+        address bidedAddress = bidAddress[_membershipId]
+
     }
 
-    function getIsBidArray() view public returns (bool [] memory){
-        return isBid;
+    function cancelSale() public {
+
+    }
+
+    function cancelBid() public {
+
+    }
+    
+    function getOnSaleArray() view public returns (uint256 [] memory){
+        return onSaleMembershipArray;
     }
     
 }
