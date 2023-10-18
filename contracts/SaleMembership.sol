@@ -64,16 +64,46 @@ contract SaleMembership {
     }
     
     function denyTrade(uint256 _membershipId) public payable {
-        address bidedAddress = bidAddress[_membershipId]
+        address bidedAddress = bidAddress[_membershipId];
+        uint256 price = membershipPrices[_membershipId];
 
+        require(!isBid[_membershipId], "Membership is not Bided.");
+
+        payable(bidedAddress).transfer(price);
+        isBid[_membershipId] = false;
     }
 
-    function cancelSale() public {
+    function cancelSale(uint256 _membershipId) public payable {
+        address membershipOwner = saleMembershipAddress.ownerOf(_membershipId);
+    
+        require(membershipOwner != msg.sender, "Caller is Membership owner.");
 
+        if (isBid[_membershipId]){
+            address bidedAddress = bidAddress[_membershipId];
+            uint256 price = membershipPrices[_membershipId];
+
+            payable(bidedAddress).transfer(price);
+            isBid[_membershipId] = false;
+        }
+
+        membershipPrices[_membershipId] = 0;
+        for(uint256 i = 0; i<onSaleMembershipArray.length; i++){
+            if(membershipPrices[onSaleMembershipArray[i]] == 0){
+                onSaleMembershipArray[i] = onSaleMembershipArray[onSaleMembershipArray.length - 1];
+                onSaleMembershipArray.pop();
+            }
+        }
     }
 
-    function cancelBid() public {
+    function cancelBid(uint256 _membershipId) public payable {
+        address bidedAddress = bidAddress[_membershipId];
+        uint256 price = membershipPrices[_membershipId];
 
+        require(bidedAddress != msg.sender, "Caller is not Bider.");
+        require(!isBid[_membershipId], "Membership is not Bided.");
+
+        payable(bidedAddress).transfer(price);
+        isBid[_membershipId] = false;
     }
     
     function getOnSaleArray() view public returns (uint256 [] memory){
