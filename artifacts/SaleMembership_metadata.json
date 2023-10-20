@@ -62,17 +62,29 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_membershipId",
+						"type": "uint256"
+					}
+				],
 				"name": "cancelBid",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_membershipId",
+						"type": "uint256"
+					}
+				],
 				"name": "cancelSale",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -338,11 +350,11 @@
 			]
 		},
 		"contracts\\SaleMembership.sol": {
-			"keccak256": "0xb1fd25316100e8b6f9838f83ec63bd8cd5f10ddd014e99255ace7edfea47d3f3",
+			"keccak256": "0x95f0ba4907ce9ba81b5071c2d1eb405cf20b5d89a2012718fceb82ccb675773e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://47abab69e301cdd01275bf3fe9015a4b6943b14429950a119ac3a897310c5229",
-				"dweb:/ipfs/QmRRNnYMnExwBvaEsnZKYBkiSoHBpLJMagWwy9MEpKNYpx"
+				"bzz-raw://713f75a2c712263dccf62912f1c4fe9ab30505ed20a36a109b8329bb8a69a620",
+				"dweb:/ipfs/QmanzE5pPhPPRPZ41rcT9sE1mVuUvAm3DdtnyiBQ3uST7C"
 			]
 		}
 	},

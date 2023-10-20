@@ -67,22 +67,26 @@ contract SaleMembership {
         address bidedAddress = bidAddress[_membershipId];
         uint256 price = membershipPrices[_membershipId];
 
-        require(!isBid[_membershipId], "Membership is not Bided.");
+        // 판매자만 승인되도록 제한 필요
+        require(saleMembershipAddress.owner() == msg.sender, "Caller is not mint this.");
+        require(isBid[_membershipId], "Membership is not Bided.");
 
         payable(bidedAddress).transfer(price);
+        bidAddress[_membershipId] = address(0);
         isBid[_membershipId] = false;
     }
 
     function cancelSale(uint256 _membershipId) public payable {
         address membershipOwner = saleMembershipAddress.ownerOf(_membershipId);
     
-        require(membershipOwner != msg.sender, "Caller is Membership owner.");
+        require(membershipOwner == msg.sender, "Caller is not Membership owner.");
 
         if (isBid[_membershipId]){
             address bidedAddress = bidAddress[_membershipId];
             uint256 price = membershipPrices[_membershipId];
 
             payable(bidedAddress).transfer(price);
+            bidAddress[_membershipId] = address(0);
             isBid[_membershipId] = false;
         }
 
@@ -99,10 +103,11 @@ contract SaleMembership {
         address bidedAddress = bidAddress[_membershipId];
         uint256 price = membershipPrices[_membershipId];
 
-        require(bidedAddress != msg.sender, "Caller is not Bider.");
-        require(!isBid[_membershipId], "Membership is not Bided.");
+        require(bidedAddress == msg.sender, "Caller is not Bider.");
+        require(isBid[_membershipId], "Membership is not Bided.");
 
         payable(bidedAddress).transfer(price);
+        bidAddress[_membershipId] = address(0);
         isBid[_membershipId] = false;
     }
     
