@@ -161,6 +161,45 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "getLastOwner",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getNames",
+				"outputs": [
+					{
+						"internalType": "string[]",
+						"name": "",
+						"type": "string[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getPrice",
+				"outputs": [
+					{
+						"internalType": "uint256[][]",
+						"name": "",
+						"type": "uint256[][]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -188,6 +227,30 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "lastOwner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
 						"name": "_price",
 						"type": "uint256"
 					},
@@ -200,6 +263,25 @@
 				"name": "mintMembership",
 				"outputs": [],
 				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -242,6 +324,30 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "price",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -319,6 +425,42 @@
 					}
 				],
 				"name": "setApprovalForAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_membershipId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_lastOwner",
+						"type": "address"
+					}
+				],
+				"name": "setLastOwner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_membershipId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_price",
+						"type": "uint256"
+					}
+				],
+				"name": "setPrice",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -676,11 +818,11 @@
 			]
 		},
 		"contracts\\MintMembership.sol": {
-			"keccak256": "0xb64ad23a2a0750448757d9c2d7e27794f7d32bd598bbe23b1adaa18e19f4549f",
+			"keccak256": "0xf74830eacdb3500de20531550c2f94c414b942d3bc8b61605c896a173247e76e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b717ff23e5b5043ea75fc9de44b1d466c07b8ea6481e084024daa8d133018679",
-				"dweb:/ipfs/Qmb23GAev3Bb4zgchMKdLekmibp7sFRKAdZbYkt5RcxSHX"
+				"bzz-raw://50d8f50c993bbabbb71135ccd36f4194481869d4cbcd611507d5cd1cb266a83e",
+				"dweb:/ipfs/QmPVRCUsbG2jrfpVL69XK7epVdKfYm8zsFgyXrqBMprtxA"
 			]
 		}
 	},

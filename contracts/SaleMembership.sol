@@ -20,7 +20,6 @@ contract SaleMembership {
     function setForSaleMembership(uint256 _membershipId, uint256 _price) public payable {
 
         address membershipOwner = saleMembershipAddress.ownerOf(_membershipId);
-        
 
         require(membershipOwner == msg.sender, "Caller is not membership owner.");
         require(_price > 0, "Price is zero or lower.");
@@ -50,9 +49,16 @@ contract SaleMembership {
 
     function approveTrade(uint256 _membershipId) public payable {
         address membershipOwner = saleMembershipAddress.ownerOf(_membershipId);
+        
+        require(saleMembershipAddress.owner() == msg.sender, "Caller is not mint this.");
+        
+        address bidedAddress = bidAddress[_membershipId];
+        uint256 price = membershipPrices[_membershipId];
 
-        payable(membershipOwner).transfer(msg.value);
-        saleMembershipAddress.safeTransferFrom(membershipOwner, msg.sender, _membershipId);
+        // require(price==msg.value, msg.value);
+
+        payable(membershipOwner).transfer(price);
+        saleMembershipAddress.safeTransferFrom(membershipOwner, bidedAddress, _membershipId);
 
         membershipPrices[_membershipId] = 0;
         for(uint256 i = 0; i<onSaleMembershipArray.length; i++){
@@ -61,6 +67,9 @@ contract SaleMembership {
                 onSaleMembershipArray.pop();
             }
         }
+        isBid[_membershipId] = false;
+        saleMembershipAddress.setLastOwner(_membershipId, bidedAddress);
+        saleMembershipAddress.setPrice(_membershipId, price);
     }
     
     function denyTrade(uint256 _membershipId) public payable {
@@ -114,5 +123,8 @@ contract SaleMembership {
     function getOnSaleArray() view public returns (uint256 [] memory){
         return onSaleMembershipArray;
     }
-    
+
+    function getMembershipInformation(uint256 _membershipId) view public returns (uint256, bool){
+        return (membershipPrices[_membershipId], isBid[_membershipId]);
+    }
 }

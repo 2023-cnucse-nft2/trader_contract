@@ -101,6 +101,30 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_membershipId",
+						"type": "uint256"
+					}
+				],
+				"name": "getMembershipInformation",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "getOnSaleArray",
 				"outputs": [
@@ -342,19 +366,19 @@
 			]
 		},
 		"contracts/MintMembership.sol": {
-			"keccak256": "0xb64ad23a2a0750448757d9c2d7e27794f7d32bd598bbe23b1adaa18e19f4549f",
+			"keccak256": "0xf74830eacdb3500de20531550c2f94c414b942d3bc8b61605c896a173247e76e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b717ff23e5b5043ea75fc9de44b1d466c07b8ea6481e084024daa8d133018679",
-				"dweb:/ipfs/Qmb23GAev3Bb4zgchMKdLekmibp7sFRKAdZbYkt5RcxSHX"
+				"bzz-raw://50d8f50c993bbabbb71135ccd36f4194481869d4cbcd611507d5cd1cb266a83e",
+				"dweb:/ipfs/QmPVRCUsbG2jrfpVL69XK7epVdKfYm8zsFgyXrqBMprtxA"
 			]
 		},
 		"contracts\\SaleMembership.sol": {
-			"keccak256": "0x95f0ba4907ce9ba81b5071c2d1eb405cf20b5d89a2012718fceb82ccb675773e",
+			"keccak256": "0x3f9d58a292499f820a289c6df9bc08792bcf08a3a1e6f1cefd6957eed033540c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://713f75a2c712263dccf62912f1c4fe9ab30505ed20a36a109b8329bb8a69a620",
-				"dweb:/ipfs/QmanzE5pPhPPRPZ41rcT9sE1mVuUvAm3DdtnyiBQ3uST7C"
+				"bzz-raw://e6fd3ff2839e5c5eea3904dde0058253deafff68512498b71adaddd629c380aa",
+				"dweb:/ipfs/QmYHm8d2as2MNgwGWyUdet7MuMxBUJjpcKkYQo82TeqgWv"
 			]
 		}
 	},
